@@ -1,7 +1,18 @@
 ﻿using UnityEngine;
+using TMPro;
 
 public class CameraMovement : MonoBehaviour
 {
+    public enum Sens
+    {
+        First,
+        Second,
+        Third,
+        Fourth
+    }
+    public Sens currentSensValue;
+    [SerializeField] public TMP_Text SensText;
+
     [SerializeField] GameObject player;
     [SerializeField]
     [Range(0.5f, 2f)]
@@ -75,6 +86,44 @@ public class CameraMovement : MonoBehaviour
                 // Blocco del cursore
                 Cursor.lockState = CursorLockMode.Locked;
             }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            currentSensValue = Sens.First;
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            currentSensValue = Sens.Second;
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            currentSensValue = Sens.Third;
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            currentSensValue = Sens.Fourth;
+        }
+
+        // Abilitare/disabilitare in base al valore corrente
+        switch (currentSensValue)
+        {
+            case Sens.First:
+                mouseSense = 1;
+                SensText.text = mouseSense.ToString();
+                break;
+            case Sens.Second:
+                mouseSense = 0.75f;
+                SensText.text = mouseSense.ToString();
+                break;
+            case Sens.Third:
+                mouseSense = 0.50f;
+                SensText.text = mouseSense.ToString();
+                break;
+            case Sens.Fourth:
+                mouseSense = 0.25f;
+                SensText.text = mouseSense.ToString();
+                break;
         }
     }
 }
