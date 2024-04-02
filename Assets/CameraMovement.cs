@@ -113,15 +113,15 @@ public class CameraMovement : MonoBehaviour
                 SensText.text = mouseSense.ToString();
                 break;
             case Sens.Second:
-                mouseSense = 0.75f;
+                mouseSense = 1.5f;
                 SensText.text = mouseSense.ToString();
                 break;
             case Sens.Third:
-                mouseSense = 0.50f;
+                mouseSense = 1.7f;
                 SensText.text = mouseSense.ToString();
                 break;
             case Sens.Fourth:
-                mouseSense = 0.25f;
+                mouseSense = 2f;
                 SensText.text = mouseSense.ToString();
                 break;
         }
