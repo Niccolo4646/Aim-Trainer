@@ -20,6 +20,14 @@ public class Movement : MonoBehaviour
 
     void Update()
     {
+        if(Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.LeftShift))
+        {
+            currentSpeed = 8;
+        } else
+        {
+            currentSpeed = 5;
+        }
+
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
 

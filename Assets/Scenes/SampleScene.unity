@@ -183,8 +183,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Usa i numeri 1-4 per cambiare la sensibilt\xE0\nSENSIBILIT\xC0:\n\nControlli\n\nMovimento:\n\n-
     Mouse per guardare intorno\n- WASD per muoversi\n- W+ Shift Sinistra per correre\n-
-    Spazio per saltare\n\n\nArmi:\n\n- Click Sintro per sparare\n- Click destro per
-    mirare"
+    Spazio per saltare\n\n\nArmi:\n\n- Click Sinistro per sparare\n- Click Destro
+    per mirare"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -476,7 +476,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentSpeed: 5
-  jumpForce: 3
+  jumpForce: 5
 --- !u!54 &245281902
 Rigidbody:
   m_ObjectHideFlags: 0
