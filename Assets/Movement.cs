@@ -38,6 +38,7 @@ public class Movement : MonoBehaviour
             rb.AddForce(new Vector3(0, jumpForce, 0), ForceMode.Impulse);
             isGrounded = false;
         }
+        print(isGrounded);
     }
 
     private void FixedUpdate()
@@ -48,5 +49,10 @@ public class Movement : MonoBehaviour
     private void OnCollisionEnter(Collision other)
     {
         isGrounded = true;
+
+        if (other.gameObject.CompareTag("trasp"))
+        {
+            isGrounded = true;
+        }
     }
 }
