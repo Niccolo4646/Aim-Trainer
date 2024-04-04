@@ -18,7 +18,7 @@ public class Inv_Inventory : MonoBehaviour
 
     private void Start()
     {
-        GameObject[] objArr = Resources.LoadAll<GameObject>("Items");
+        GameObject[] objArr = Resources.LoadAll<GameObject>("TestItems");
         resourceItems.AddRange(objArr);
         foreach(Transform child in buttonsPath.transform)
         {
