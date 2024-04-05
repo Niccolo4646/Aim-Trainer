@@ -45,12 +45,12 @@ public class Loading : MonoBehaviour
     {
         if (fillPercent >= 1)
         {
-            Invoke("goToTraining", 1f);
+            Invoke("goToHome", 1f);
         }
     }
 
-    void goToTraining()
+    void goToHome()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(0);
     }
 }
