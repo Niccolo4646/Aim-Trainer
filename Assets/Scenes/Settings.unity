@@ -436,13 +436,25 @@ MonoBehaviour:
   m_FillRect: {fileID: 2042181692}
   m_HandleRect: {fileID: 1282627988}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 1
+  m_MinValue: 0.25
+  m_MaxValue: 2
   m_WholeNumbers: 0
   m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1440776657}
+        m_TargetAssemblyTypeName: SettingsManager, Assembly-CSharp
+        m_MethodName: WhenUpdateSensValueText
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &801459032
 GameObject:
   m_ObjectHideFlags: 0
@@ -802,8 +814,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 205.89, y: -10.14}
-  m_SizeDelta: {x: 219.1, y: 50}
+  m_AnchoredPosition: {x: 129.1144, y: 2.43}
+  m_SizeDelta: {x: 65.5488, y: 24.86}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1374272822
 MonoBehaviour:
@@ -825,7 +837,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 1.00
+  m_text: 1,00
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -911,6 +923,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1440776656}
+  - component: {fileID: 1440776657}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -933,6 +946,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1440776657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1440776655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f4e5c93c23ab6e44836153926f1b53c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SensValueText: {fileID: 1374272822}
+  SensValueScroll: {fileID: 564819387}
 --- !u!1 &1667164904
 GameObject:
   m_ObjectHideFlags: 0

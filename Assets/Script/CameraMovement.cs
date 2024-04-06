@@ -13,10 +13,16 @@ public class CameraMovement : MonoBehaviour
     public Sens currentSensValue;
     [SerializeField] public TMP_Text SensText;
 
+    // Create an instance of the SettingsManager class
+    public static SettingsManager settingsManager;
+
+    // Access the SensValueScroll value using the instance
+    float sensValueInSettings = settingsManager.SensValueScroll.value;
+
     [SerializeField] GameObject player;
     [SerializeField]
     [Range(0.5f, 2f)]
-    float mouseSense = 1;
+    public float mouseSense = 1;
     [SerializeField]
     [Range(-20, -10)]
     int lookUp = -15;
@@ -32,11 +38,17 @@ public class CameraMovement : MonoBehaviour
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+
+        settingsManager = new SettingsManager(); // Crea un'istanza di SettingsManager
+        
     }
     void Update()
     {
         float rotateX = Input.GetAxis("Mouse X") * mouseSense;
         float rotateY = Input.GetAxis("Mouse Y") * mouseSense;
+
+        float sensValueInSettings = settingsManager.SensValueScroll.value; // Accedi al valore di SensValueScroll
+        mouseSense = sensValueInSettings;
 
         if (!isSpectator)
         {
