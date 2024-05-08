@@ -6,6 +6,12 @@ TagManager:
   tags:
   - Cubi
   - trasp
+  - FxTemporaire
+  - Sphere
+  - BananaHead
+  - BananaArms
+  - BananaSpine
+  - BananaLegs
   layers:
   - Default
   - TransparentFX
@@ -14,7 +20,7 @@ TagManager:
   - Water
   - UI
   - Gun
-  - 
+  - PostProccesing
   - 
   - 
   - 

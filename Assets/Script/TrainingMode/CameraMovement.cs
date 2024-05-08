@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class CameraMovement : MonoBehaviour
 {
@@ -10,49 +11,44 @@ public class CameraMovement : MonoBehaviour
         Third,
         Fourth
     }
+    [Header("SensFromNumber")]
     public Sens currentSensValue;
     [SerializeField] public TMP_Text SensText;
 
-    // Create an instance of the SettingsManager class
-    public static SettingsManager settingsManager;
-
-    // Access the SensValueScroll value using the instance
-    float sensValueInSettings = settingsManager.SensValueScroll.value;
-
-    [SerializeField] GameObject player;
+    [Header("Sens&Max&Min")]
     [SerializeField]
     [Range(0.5f, 2f)]
     public float mouseSense = 1;
     [SerializeField]
     [Range(-20, -10)]
-    int lookUp = -15;
+    int lookUp = -50;
     [SerializeField]
     [Range(15, 25)]
     int lookDown = 20;
+    
 
-    // Una variabile booleana che tiene traccia dello stato attuale del giocatore.
+    [Header("Aim")]
+    [SerializeField] public GameObject CameraNoAim;
+    [SerializeField] public GameObject AimZone;
+    [SerializeField] public GameObject NoAimZone;
+
+    [Header("Varie")]
     public bool isSpectator;
-    // Script di volo della telecamera libera
+    [SerializeField] GameObject player;
     [SerializeField] float speed = 50f;
 
     private void Start()
     {
-        // Cursor.lockState = CursorLockMode.Locked;
-
-        settingsManager = new SettingsManager(); // Accedi all'istanza singleton di SettingsManager
-
-        sensValueInSettings = settingsManager.SensValueScroll.value; // Inizializza sensValueInSettings
+        Scene scene = SceneManager.GetActiveScene();
+        if (scene.name == "Training")
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+        }        
     }
     void Update()
     {
         float rotateX = Input.GetAxis("Mouse X") * mouseSense;
         float rotateY = Input.GetAxis("Mouse Y") * mouseSense;
-
-        settingsManager = new SettingsManager(); // Crea un'istanza di SettingsManager
-        string SensValueInSettings = new SettingsManager().SensValueText.ToString();
-        float SensValueInSettingsFloat = float.Parse(SensValueInSettings);
-
-        mouseSense = SensValueInSettingsFloat;
 
         if (!isSpectator)
         {
@@ -128,7 +124,15 @@ public class CameraMovement : MonoBehaviour
                 break;
         }
 
-        /* if (Input.GetKeyDown(KeyCode.Escape))
+        if(Input.GetButton("Fire2"))
+        {
+            CameraNoAim.transform.position = AimZone.transform.position;
+        } else
+        {
+            CameraNoAim.transform.position = NoAimZone.transform.position;
+        }
+        /* codice inutilizzato perché ripetitivo è gia scritto
+         if (Input.GetKeyDown(KeyCode.Escape))
         {
             // Se il cursore del mouse � bloccato, allora...
             if (Cursor.lockState == CursorLockMode.Locked)

@@ -15,4 +15,9 @@ public class HomeManager : MonoBehaviour
     {
         SceneManager.LoadScene(3);
     }
+
+    private void Update()
+    {
+        Cursor.lockState = CursorLockMode.None;
+    }
 }

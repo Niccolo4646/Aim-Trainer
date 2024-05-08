@@ -10,13 +10,11 @@ public class SettingsManager : MonoBehaviour
     [Header("SensSttings")]
     public TMP_Text SensValueText;
     public Slider SensValueScroll;
-    CameraMovement cameraMovement;
     float sensValueWhenChange;
 
-    public void WhenUpdateSensValueText()
+    public void WhenUpdateSensValue()
     {
         SensValueText.text = SensValueScroll.value.ToString("F2");
-        cameraMovement.mouseSense = sensValueWhenChange;
     }
 
     private void Update()
