@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 5706555861285960794}
   m_Layer: 0
   m_Name: Ammo_02
-  m_TagString: Untagged
+  m_TagString: Ammo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -135,8 +135,10 @@ MonoBehaviour:
   - {fileID: 3425397897143033233, guid: b34374b51d7fc594993cffcdef006166, type: 3}
   - {fileID: 7450690904931942861, guid: 4357bb72ee71dc044b40695a2d5268a7, type: 3}
   - {fileID: 557800416091601620, guid: 8ab5b71987af60c43b87e5331be827c1, type: 3}
-  AudioSourceBoom: {fileID: 5706555861285960794}
-  WarningText: {fileID: 0}
+  AudioSource: {fileID: 5706555861285960794}
+  Boom: {fileID: 8300000, guid: d92c7ef4e96eacf44af311577df62b4b, type: 3}
+  Headshot: {fileID: 8300000, guid: 91e2640b79525b946832f10face9f4d1, type: 3}
+  warningTextObjects: []
 --- !u!82 &5706555861285960794
 AudioSource:
   m_ObjectHideFlags: 0
@@ -147,7 +149,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: d92c7ef4e96eacf44af311577df62b4b, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1

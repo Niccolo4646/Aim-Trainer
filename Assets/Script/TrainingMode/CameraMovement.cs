@@ -1,5 +1,5 @@
-﻿using UnityEngine;
-using TMPro;
+﻿using TMPro;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class CameraMovement : MonoBehaviour
@@ -13,29 +13,30 @@ public class CameraMovement : MonoBehaviour
     }
     [Header("SensFromNumber")]
     public Sens currentSensValue;
-    [SerializeField] public TMP_Text SensText;
+     public TMP_Text SensText;
 
     [Header("Sens&Max&Min")]
     [SerializeField]
     [Range(0.5f, 2f)]
     public float mouseSense = 1;
     [SerializeField]
-    [Range(-20, -10)]
-    int lookUp = -50;
+    [Range(-50, -10)]
+    int lookUp;
     [SerializeField]
     [Range(15, 25)]
     int lookDown = 20;
-    
+
 
     [Header("Aim")]
-    [SerializeField] public GameObject CameraNoAim;
-    [SerializeField] public GameObject AimZone;
-    [SerializeField] public GameObject NoAimZone;
+    public GameObject CameraNoAim;
+    public GameObject AimZone;
+    public GameObject NoAimZone;
 
     [Header("Varie")]
     public bool isSpectator;
     [SerializeField] GameObject player;
     [SerializeField] float speed = 50f;
+    public Movement movement;
 
     private void Start()
     {
@@ -43,7 +44,7 @@ public class CameraMovement : MonoBehaviour
         if (scene.name == "Training")
         {
             Cursor.lockState = CursorLockMode.Locked;
-        }        
+        }
     }
     void Update()
     {
@@ -84,7 +85,7 @@ public class CameraMovement : MonoBehaviour
             transform.position += dir * speed * Time.deltaTime;
         }
 
-        
+
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
@@ -124,13 +125,16 @@ public class CameraMovement : MonoBehaviour
                 break;
         }
 
-        if(Input.GetButton("Fire2"))
+        if (Input.GetButton("Fire2"))
         {
             CameraNoAim.transform.position = AimZone.transform.position;
-        } else
+        }
+        else
         {
             CameraNoAim.transform.position = NoAimZone.transform.position;
         }
+
+
         /* codice inutilizzato perché ripetitivo è gia scritto
          if (Input.GetKeyDown(KeyCode.Escape))
         {

@@ -14,8 +14,8 @@ public class Loading : MonoBehaviour
     List<string> tipList = new List<string>()
     {
         "Clicca il tasto Sinistro del mouse per sparare",
-        "raccogli le monete per ottenere punti bonus!",
-        " (aggiungi altri suggerimenti qui)"
+        "Clicca T per equipaggiare e togliere l'arma",
+        "Clicca i tasti 1-4 per modifcare la sensibilità della telecamra"
     };
 
     private void Start()

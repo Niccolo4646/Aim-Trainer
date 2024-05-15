@@ -16,6 +16,10 @@ public class Movement : MonoBehaviour
     bool isGrounded;
     [SerializeField] float jumpForce;
 
+    [Header("Guns")]
+    public GameObject gun;
+    public bool isEquipped = true;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -23,7 +27,22 @@ public class Movement : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.LeftShift))
+        //TOGGLE-UNTOGGLE GUNS
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            if (isEquipped)
+            {
+                gun.SetActive(false);
+                isEquipped = false;
+            }
+            else
+            {
+                gun.SetActive(true);
+                isEquipped = true;
+            }
+        }
+
+        if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.LeftShift))
         {
             currentSpeed = 8;
         } else

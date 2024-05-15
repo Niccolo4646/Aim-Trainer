@@ -2,31 +2,46 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using UnityEngine.UI;
 
 public class Ammo : MonoBehaviour
 {
-    public List<GameObject> Spheres = new List<GameObject>();
-    public AudioSource AudioSourceBoom;
+    public List<GameObject> Spheres; // List of sphere prefabs to spawn
 
-    [SerializeField] public TMP_Text WarningText;
+    [Header("Audio Effects")]
+    public AudioSource AudioSource;
+    public AudioClip Boom;
+    public AudioClip Headshot;
+
+    [SerializeField] GameObject[] warningTextObjects;
+    private TMP_Text warningText;
+    private void Start()
+    {
+        warningTextObjects = GameObject.FindGameObjectsWithTag("WarningText");
+        warningText = warningTextObjects[0].GetComponent<TMP_Text>();
+    }
+
     private void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.CompareTag("Sphere"))
         {
-            AudioSourceBoom.Play();
+            AudioSource.PlayOneShot(Boom);
             Destroy(other.gameObject);
             Instantiate(Spheres[Random.Range(0, Spheres.Count)]);
-        }  
-
-        if(other.gameObject.CompareTag("BananaHead")) {
-            WarningText.text = "HEADSHOT!! +2 PUNTI!";
+        }
+        if (other.gameObject.CompareTag("BananaHead"))
+        {
+            warningText.text = "HEADSHOT!!";
             Invoke("ClearWarningText", 3f);
+
+            AudioSource.PlayOneShot(Headshot);
         }
     }
 
     void ClearWarningText()
     {
-        WarningText.text = "";
+        if (warningText != null) // Check if warningText is valid before modifying it
+        {
+            warningText.text = "";
+        }
     }
 }
